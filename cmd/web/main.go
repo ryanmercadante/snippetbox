@@ -15,6 +15,10 @@ import (
 	"github.com/ryanmercadante/snippetbox/pkg/models/mysql"
 )
 
+type contextKey string
+
+const contextKeyIsAuthenticated = contextKey("isAuthenticated")
+
 // Define an application struct to hold the application-wide dependencies for the
 // web application.
 type application struct {
