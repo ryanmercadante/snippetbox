@@ -23,6 +23,13 @@ type testServer struct {
 	*httptest.Server
 }
 
+// Create a newTestServer helper which initializes and returns a new instance
+// of our custom testServer type.
+func newTestServer(t *testing.T, h http.Handler) *testServer {
+	ts := httptest.NewTLSServer(h)
+	return &testServer{ts}
+}
+
 // Implement a get method on our custom testServer type. This makes a GET
 // request to a given url path on the test server, and returns the response
 // status code, headers and body.
